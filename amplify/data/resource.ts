@@ -69,7 +69,7 @@ const schema = a.schema({
     text:a.string(),
     from:a.string(),
     to:a.string(),
-    time:a.date(),
+    time:a.string(),
     status:a.string().default("NV")
   }).authorization((allow) => [allow.publicApiKey()]),
 
@@ -112,18 +112,8 @@ const schema = a.schema({
       trial_start: a.string(),
       trial_end: a.string(),
       active_card: a.string(),
-      plan: a.customType({
-        plan_id: a.string(),
-        name: a.string(),
-        amount: a.string(),
-        currency: a.string(),
-        interval_unit_time: a.string(),
-      }),
-      customer: a.customType( {
-        first_name: a.string(),
-        last_name: a.string(),
-        email: a.string()
-      }),
+      plan: a.string(),
+      customer: a.string()
     }
   ).authorization((allow) => [allow.publicApiKey()])   
 });

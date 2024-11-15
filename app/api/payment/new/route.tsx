@@ -139,7 +139,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.redirect("http://localhost:3000/dashboard",{status:200})
     }
 
-    await cookiesClient.models.Suscription.create({idCompany:company.id,...Suscription})
+    await cookiesClient.models.Suscription.create({idCompany:company.id,plan:Suscription.plan.id,customer:Suscription.customer.email,...Suscription})
 
     return NextResponse.redirect("http://localhost:3000/dashboard",{status:201})
     

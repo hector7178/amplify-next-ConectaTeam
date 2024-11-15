@@ -10,6 +10,8 @@ import { type Schema } from "@/amplify/data/resource";
 import outputs from "@/amplify_outputs.json";
 import { updateUserAttributes } from "aws-amplify/auth";
 
+
+
 export const { runWithAmplifyServerContext } = createServerRunner({
   config: outputs,
 });
@@ -20,6 +22,7 @@ export const cookiesClient = generateServerClientUsingCookies<Schema>({
 });
 
 export async function AuthGetCurrentUserServer() {
+
   try {
     const currentUser = await runWithAmplifyServerContext({
       nextServerContext: { cookies },

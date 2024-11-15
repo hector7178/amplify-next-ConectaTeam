@@ -10,6 +10,8 @@ import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "ConectaTeam",
   description: "La mejor CRM Para tu negocio",

@@ -132,10 +132,11 @@ function Login({ user }: { user?: AuthUser }) {
         options: {
           ...input.options,
           userAttributes: {
+
             ...input.options?.userAttributes,
             email: customEmail,
             nickname:customname,
-            phoneNumber:customPhone,
+            phone_number:customPhone,
             birthdate:customBirthdate,
             "custom:company":company,
             "custom:country":pais,

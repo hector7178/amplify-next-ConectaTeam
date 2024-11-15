@@ -18,10 +18,6 @@ export const auth = defineAuth({
      },
   },
   userAttributes: {
-    preferredUsername: {
-      mutable: true,
-      required: false
-    },
     birthdate: {
       mutable: true,
       required: false,
@@ -53,7 +49,5 @@ export const auth = defineAuth({
       minLen:1
     },
 
-  },
-
-  groups: ["ADMINS", "USERS"]
+  }
 });

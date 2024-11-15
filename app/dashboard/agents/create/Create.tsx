@@ -9,7 +9,6 @@ import { redirect, useRouter } from 'next/navigation'
 import { Label } from '../../../../components/ui/label'
 import { Input } from '../../../../components/ui/input'
 import { FetchUserAttributesOutput } from 'aws-amplify/auth'
-import { revalidatePath } from 'next/cache'
 import { PasswordField, PhoneNumberField, SelectField, TextField } from '@aws-amplify/ui-react'
 
 interface prop {

@@ -123,8 +123,8 @@ function Login({ user }: { user?: AuthUser }) {
       const customname= options?.userAttributes?.name?.toLowerCase();
       const customPhone= options?.userAttributes?.phone_number;
       const customBirthdate =options?.userAttributes?.birthdate;
-      const company =options?.userAttributes?.["custom:company"];
-      const pais =options?.userAttributes?.["custom:country"];
+      const company =options?.userAttributes?.["custom:company"]||" -";
+      const pais =options?.userAttributes?.["custom:country"]|| " -";
        return signUp({
         
         username: customUsername,

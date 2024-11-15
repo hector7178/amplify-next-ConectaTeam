@@ -61,3 +61,85 @@ a {
     --radius: 0.5rem;
   }
 }
+* {
+  scrollbar-width: thin;
+  scrollbar-color:  #976cf5 rgba(211, 211, 211, 0);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(211, 211, 211, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color:  rgba(211, 211, 211, 0);
+  border-radius: 20px;
+  border: 3px solid #976cf5;
+}
+
+.amplify-checkbox__icon {
+background-color: #976cf5
+}
+[data-amplify-authenticator] {
+  --amplify-components-authenticator-router-box-shadow: 0 0 16px var(--amplify-colors-overlay-10);
+  --amplify-components-authenticator-router-border-width: 0;
+  --amplify-components-authenticator-form-padding: var(--amplify-space-medium) var(--amplify-space-xl) var(--amplify-space-xl);
+  --amplify-components-button-primary-background-color: var(--amplify-colors-purple-100);
+  --amplify-components-fieldcontrol-focus-box-shadow: 0 0 0 2px var(--amplify-colors-purple-60);
+  --amplify-components-tabs-item-active-border-color: var(--amplify-colors-neutral-100);
+  --amplify-components-tabs-item-color: var(--amplify-colors-neutral-80);
+  --amplify-components-tabs-item-active-color: var(--amplify-colors-purple-100);
+  --amplify-components-button-link-color: var(--amplify-colors-purple-100);
+}
+.amplify-button--primary:hover {
+  --amplify-internal-button-background-color: var(--amplify-colors-neutral-100);
+  --amplify-internal-button-border-color: var(
+  --amplify-components-button-primary-hover-border-color);
+  --amplify-internal-button-color: var(
+  --amplify-components-button-primary-hover-color);
+}
+.amplify-tabs__item:hover {
+  color: var(--amplify-colors-purple-80);
+  cursor: pointer;
+}
+
+.amplify-button--link:hover {
+  --amplify-internal-button-background-color: var(--amplify-colors-purple-10
+);
+  --amplify-internal-button-color: var(
+    --amplify-colors-purple-80
+);
+}
+.termAndCondition{
+  color: #5e2cca !important;
+}
+.data-\[state\=checked\]\:bg-neutral-900[data-state="checked"]{
+  background-color: #5e2cca !important;
+}
+.hover\:bg-neutral-900\/90:hover {
+  background-color:#1d005a !important;
+}
+.amplify-button:hover {
+  --amplify-internal-button-background-color: #f3eeff !important;
+  --amplify-internal-button-border-color: var(
+    --amplify-colors-purple-100
+);
+  --amplify-internal-button-color: var(
+    --amplify-colors-purple-100
+);
+}
+
+.amplify-button:focus {
+  --amplify-internal-button-background-color:  #f3eeff !important;
+  --amplify-internal-button-border-color: var(
+    --amplify-colors-purple-100
+);
+  --amplify-internal-button-color: var(
+    --amplify-colors-purple-100
+);
+  box-shadow: var(--amplify-internal-button-focus-box-shadow);
+}

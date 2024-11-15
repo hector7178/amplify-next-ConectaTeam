@@ -12,6 +12,120 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
+
+  Company: a.model({
+    name:a.string().required(),
+    accounts: a.hasMany('Accounts', 'idCompany'),
+    admins: a.hasMany('Admins', 'idCompany'),
+    agents: a.hasMany('Agents', 'idCompany'),
+    bot:a.hasOne("Bot","idCompany"),
+    contacts:a.hasMany("Contacts","idCompany"),
+    suscription:a.hasOne("Suscription","idCompany")
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  Profile:a.model({
+    user:a.string(),
+    company:a.string(),
+    country:a.string(),
+    name:a.string(),
+    rol:a.string()
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  Admins: a.model({
+    idCompany:a.id(),
+    user:a.string(),
+    status:a.boolean(),
+    company: a.belongsTo('Company', 'idCompany'),
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  Agents: a.model({
+    idCompany:a.id(),
+    user:a.string(),
+    status:a.boolean(),
+    company: a.belongsTo('Company', 'idCompany'),
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  Chats:a.model({
+    idContacts:a.id(),
+    messages:a.hasMany("Message","idChats"),
+    contact:a.belongsTo("Contacts","idContacts")
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  Accounts:a.model({
+    idCompany:a.id(),
+    type:a.string(),
+    token_authorization:a.string(),
+    id_page:a.string(),
+    token_webhook:a.string(),
+    webhook_path:a.string(),
+    contacts:a.hasMany("Contacts", "idAccount"),
+    company: a.belongsTo("Company", 'idCompany'),
+    status:a.boolean()
+  }).authorization((allow) => [allow.publicApiKey()]),
+  
+  Message: a.model({
+    idChats:a.id(),
+    chats:a.belongsTo("Chats","idChats"),
+    text:a.string(),
+    from:a.string(),
+    to:a.string(),
+    time:a.date(),
+    status:a.string().default("NV")
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  Contacts:a.model({
+    idCompany:a.id(),
+    company:a.belongsTo("Company","idCompany"),
+    idAccount:a.id(),
+    account:a.belongsTo("Accounts","idAccount"),
+    chat:a.hasOne('Chats', 'idContacts'),
+    name:a.string(),
+    identity:a.string(),
+    accountName:a.string()
+    
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  Bot:a.model({
+    status: a.boolean(),
+    idCompany:a.id(),
+    company:a.belongsTo("Company","idCompany"),
+    msjBot: a.hasMany("MsjBot","idBot")
+
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  MsjBot:a.model({
+    idBot:a.id(),
+    bot:a.belongsTo("Bot","idBot"),
+    answer:a.string(),
+    question:a.string()
+
+  }).authorization((allow) => [allow.publicApiKey()]),
+
+  Suscription: a.model({
+      idCompany:a.id(),
+      company:a.belongsTo("Company", "idCompany"),
+      idSus: a.string(),
+      status: a.string(),
+      creation_date: a.string(),
+      next_billing_date: a.string(),
+      current_period: a.string(),
+      trial_start: a.string(),
+      trial_end: a.string(),
+      active_card: a.string(),
+      plan: a.customType({
+        plan_id: a.string(),
+        name: a.string(),
+        amount: a.string(),
+        currency: a.string(),
+        interval_unit_time: a.string(),
+      }),
+      customer: a.customType( {
+        first_name: a.string(),
+        last_name: a.string(),
+        email: a.string()
+      }),
+    }
+  ).authorization((allow) => [allow.publicApiKey()])   
 });
 
 export type Schema = ClientSchema<typeof schema>;

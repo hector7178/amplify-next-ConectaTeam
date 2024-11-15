@@ -82,7 +82,7 @@ export default async function Page({children}: Readonly<{
             > <Logo className="w-[120px] h-[25px] md:w-[200px] md:h-[60px]" color={"#976cf5"} />
 
             </Link>
-            <Badge className="bg-customColorBg text-nowrap hover:bg-customText cursor-pointer  md:text-md md:flex hidden">PLAN {sus?.data?.plan?.name||"BASICO"}</Badge>
+            <Badge className="bg-customColorBg text-nowrap hover:bg-customText cursor-pointer  md:text-md md:flex hidden">PLAN {sus?.data?.plan ||"BASICO"}</Badge>
           </nav>
         
           <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">

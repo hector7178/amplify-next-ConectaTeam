@@ -18,8 +18,6 @@ function Page() {
   const searchParams = useSearchParams()
 
   const [open,setOpen]=useState(true)
-
-  console.log(searchParams.get("query"))
   return (
     <main className='overflow-hidden'>
     <NavBar/>

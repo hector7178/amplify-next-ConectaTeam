@@ -41,6 +41,6 @@ export const config = {
      * - favicon.ico (favicon file)
      * - login
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|login|aboutus|price|documentation|faq|errors|term_and_conditions|persona.svg).+)",
+    "/((?!api|_next/static|_next/image|favicon.ico|login|aboutus|price|documentation|faq|errors|term_and_conditions|privacypolicy|persona.svg).+)",
   ],
 };
